@@ -1,3 +1,4 @@
+
 /**
  * Sample React Native App
  * https://github.com/facebook/react-native
@@ -25,24 +26,23 @@ import {
 
 
 
+
 import { createBottomTabNavigator, SafeAreaView, createSwitchNavigator, createStackNavigator, withNavigation } from 'react-navigation';
 
 // import Mian from './mian_vue';
-// import Mian from './src/index';
-import Mian from './src/bookread/BookRead';
+import Mian from './app/index';
 
 // import Setup from './app/page/registered/Setup';
 
 // import QRvue from './app/page/qrcode/QRvue';
-import Btn_Qrcode from './src/head/Btn_Qrcode';
-import Btn_Search from './src/head/Btn_Search';
-import Btn_Remind from './src/head/Btn_Remind';
+import Btn_Qrcode from './head/Btn_Qrcode';
+import Btn_Search from './head/Btn_Search';
+import Btn_Remind from './head/Btn_Remind';
 
-import Login_index from './src/Login_index';
+// import Login_index from './Login_index';
 
 
 const { width, height } = Dimensions.get('window');
-
 
 
 class TokenScreen extends React.Component {
@@ -55,9 +55,7 @@ class TokenScreen extends React.Component {
       code: '',
       token_code: "null",
     }
-    firebase.auth().onAuthStateChanged(user => {
-      this.setState({ user })
-    })
+   
   }
 
 
@@ -111,9 +109,14 @@ class TokenScreen extends React.Component {
         }
       }
     } = this.props;
+
+
+
     return (
+
       <View style={styles.container}>
         <ScrollView style={{ padding: 20, marginTop: 20 }}>
+
           <Text style={styles.welcome}>
             歡迎使用ＳＲＰ
           </Text>
@@ -132,7 +135,7 @@ class TokenScreen extends React.Component {
               title="登入"/>
     */}
 
-          <View style={{ justifyContent: 'center' }}>
+          <View style={{justifyContent: 'center'}}>
 
             <Text style={styles.welcome}>
               請按登入
@@ -174,11 +177,14 @@ class DetailsScreen extends React.Component {
         <Button
           title="GoBack"
           onPress={() => this.props.navigation.goBack().Alert("hi")}
+
         />
+
         <Button
           title="console"
           onPress={() => console.warn(this.props)
           }
+
         />
 
       </View>
@@ -213,7 +219,7 @@ class HomeScreen extends React.Component {
     }, // android 中TabBar下面会显示一条线，高度设为 0 后就不显示线了， 不知道还有没有其它方法隐藏？？？
     headerColor: "red",
     headerLeft: (  //定义导航栏右侧的按钮
-      // <Text style={{ width: 1 }}></Text>
+      // <Text style={{width:1}}></Text>
       <Btn_Qrcode />
 
     ),
@@ -222,7 +228,7 @@ class HomeScreen extends React.Component {
 
     // headerLeftContainerStyle: {paddingRight: 100},
     headerRight: (  //定义导航栏右侧的按钮
-      // <Text style={{ width: 1 }}></Text>
+      // <Text style={{width:1}}></Text>
       <Btn_Remind />
 
     ),
@@ -268,19 +274,18 @@ const RootStack = createStackNavigator(
 
     Home: { screen: HomeScreen },
 
-    // QRvue: { screen: QRvue },
-    // Setup: { screen: Setup },
+    QRvue: { screen: QRvue },
+    Setup: { screen: Setup },
 
-    // Details: { screen: DetailsScreen },
-    // Phone: {
-    //   screen: TokenScreen,
-    //   path: 'token/:token_code',
-    // },
+    Details: { screen: DetailsScreen },
+    Phone: {
+      screen: TokenScreen,
+      path: 'token/:token_code',
+    },
 
   },
   {
-    // initialRouteName: 'Home',
-    initialRouteName: 'Login',
+    initialRouteName: 'Home',
 
   }
 );
@@ -314,6 +319,22 @@ const prefix = 'srpconsole://';
 
 export default App = () => <RootStack uriPrefix={prefix} />;
 
+
+// export default class App extends Component<Props> {
+
+
+//   render() {
+//     return (
+//       // <Hello_Stack onNavigationStateChange={(prevState, currentState) => { console.log(currentState) }} />
+//       // <Hello_Stack />
+//       <SafeAreaView style={{ flex: 1, backgroundColor: 'red' }} forceInset={{ bottom: 'never', top: 'never' }}>
+//         <Hello_Stack />
+//         {/* <RootStack /> */}
+//       </SafeAreaView>
+
+//     );
+//   }
+// }
 
 ////消除多餘安全邊距 https://reactnavigation.org/docs/zh-Hans/handling-iphonex.html
 const styles = StyleSheet.create({
