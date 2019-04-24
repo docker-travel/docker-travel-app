@@ -21,6 +21,7 @@ class Btn_Search extends React.Component {
 
 //页面的组件渲染完毕（render）之后执行
 componentDidMount() {
+  console.warn("test")
 //     //检测网络是否连接
 //     NetInfo.isConnected.fetch().done((isConnected) => {
 //         this.setState({isConnected});
@@ -55,7 +56,7 @@ componentDidMount() {
 //                 </Text>
 //         </View>
 //       </TouchableOpacity>
-<TouchableOpacity onPress={() => { this.componentDidMount()}}>
+<TouchableOpacity style={{    flex:1,}} onPress={() => { this.componentDidMount()}}>
 <View style={styles.searchBox}>
           <Text style={styles.searchContent}> 收尋 </Text>
       
@@ -75,11 +76,12 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    width: width * 0.7,
+    // width:70,
+    flex:1,
     backgroundColor: '#ededed',
     borderRadius: 5,
-    height: 30,
-
+    height: 25,
+    marginBottom:10,
   },
   searchIcon: {
     width: 16,

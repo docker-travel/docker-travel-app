@@ -17,6 +17,7 @@ import {Platform,
      TextInput,
      TouchableOpacity,
      Alert,
+     AsyncStorage,
      Dimensions,
     } from 'react-native';
 // 取得屏幕的宽高Dimensions
@@ -265,6 +266,18 @@ switchfont = () => {
   }))
 }
 
+clear() {
+  var _that = this;
+  AsyncStorage.clear(function (err) {
+    if (!err) {
+      _that.setState({
+        name: "",
+        phone: ""
+      });
+      alert('存储的数据已清除完毕!');
+    }
+  });
+}
 
   render() {
     return (
@@ -272,7 +285,7 @@ switchfont = () => {
 
       {/* <ScrollView style={{flex: 1}}> */}
 <View style={{flex: 1,flexDirection:'row'}}>
-<TouchableOpacity onPress={() => { this._post_text()}} style={{flex: 1, backgroundColor: '#aff'}}>
+<TouchableOpacity onPress={() => { this.clear()}} style={{flex: 1, backgroundColor: '#aff'}}>
 <Text style={{}}>Upper AAA text</Text>
 </TouchableOpacity>
 <TouchableOpacity onPress={() => { this.switchfont()}} style={{flex: 1, backgroundColor: '#aae'}}>

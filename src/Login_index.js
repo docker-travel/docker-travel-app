@@ -49,7 +49,7 @@ export default class Login_index extends Component {
 
   handleClick = () => {
     Linking.openURL(captchaUrl).catch(err => console.error('An error occurred', err));
-//////開Phone number authentication with invisible ReCaptcha
+    //////開Phone number authentication with invisible ReCaptcha
 
   };
   componentDidMount() {
@@ -65,13 +65,13 @@ export default class Login_index extends Component {
       if (value !== null) {
         console.warn(value);
         console.warn('已登入過', await AsyncStorage.getItem('userToken'));
-        this.props.navigation.push('Home') 
+        this.props.navigation.push('Home')
       }
-      else{
+      else {
         console.warn('請登入');
       }
 
-      
+
     } catch (error) {
       console.log(error);
     }
@@ -212,7 +212,7 @@ export default class Login_index extends Component {
         <View style={styles.container}>
           {/* <Btn_Login/> */}
           <Text style={[styles.title, { fontSize: 90 }]}>源BOOK</Text>
-       
+
           {/* <Text style={[styles.title, { fontSize: 40}]}>Logo</Text> */}
         </View>
         {/* <Button
@@ -228,8 +228,11 @@ export default class Login_index extends Component {
           this._storeData();
           this.setStorage();
         }} /> */}
+        <View style={{width:width*0.8,height:height*0.2,backgroundColor:"#01234f"}}>
 
-<Button
+</View>
+<View style={{flexDirection:"row"}}>
+        <Button
           title="新"
           onPress={() => {
             Linking.openURL("srpconsole://token/eBuvGEjNMUOo5RrhIs4XQx3hDte2").catch(err => console.error('An error occurred', err));
@@ -240,15 +243,15 @@ export default class Login_index extends Component {
           onPress={() => {
             this.save();
           }} />
-          <Button
+        <Button
           title="新Ｄ"
           onPress={() => {
             this.clear();
           }} />
-         
+</View>
 
-         
-          {/* 
+
+        {/* 
         <View style={styles.bottmContainer}>
         <Login/>
     
@@ -256,10 +259,10 @@ export default class Login_index extends Component {
 
         </View> */}
 
-{/* <Btn_Phone/> */}
-          < View style={styles.bottmContainer}>
-          <Btn_Login /> 
-      </View>
+        {/* <Btn_Phone/> */}
+        < View style={styles.bottmContainer}>
+          <Btn_Login />
+        </View>
       </View >
       // </SafeAreaView>
     );
