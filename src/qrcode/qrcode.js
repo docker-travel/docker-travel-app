@@ -13,7 +13,6 @@ import {
 } from 'react-native';
 import QRCode from 'react-native-qrcode';
 import { createBottomTabNavigator, SafeAreaView, createStackNavigator, withNavigation } from 'react-navigation';
-import Home from '../home/otherpage';
 import { ThemeProvider, ThemeContext } from './scanner';
 
 // 取得屏幕的宽高Dimensions

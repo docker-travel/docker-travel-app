@@ -29,7 +29,8 @@ import { createBottomTabNavigator, SafeAreaView, createSwitchNavigator, createSt
 
 // import Mian from './mian_vue';
 // import Mian from './src/index';
-import Mian from './src/bookread/BookRead';
+// import Mian from './src/bookread/BookRead';
+import Mian from './src/Router';
 
 // import Setup from './app/page/registered/Setup';
 

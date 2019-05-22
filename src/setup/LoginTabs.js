@@ -12,21 +12,20 @@ import {
   TextInput,
   Button
 } from 'react-native';
-import QRCode from 'react-native-qrcode';
 import ScrollableTabView, { ScrollableTabBar, DefaultTabBar } from 'react-native-scrollable-tab-view';
 
 import { SafeAreaView, } from 'react-navigation';
-import Qrcode from './qrcode';
-import Scanner from './scanner';
+import Setup from './Setup';
+import Btn_Setup from './Btn_Setup';
+
+// import Login from './Login';
 // 取得屏幕的宽高Dimensions
 const { width, height } = Dimensions.get('window');
-
-
 export default class qrcode extends Component {
   static navigationOptions = {
     // headerTitle instead of title
     // headerTitle: <Top />,
-    title: 'QRcode',
+    title: 'LoginTabs',
     headerStyle: {
       // backgroundColor: '#f4511e',
       backgroundColor: '#D0E889',
@@ -52,7 +51,7 @@ export default class qrcode extends Component {
     this.state = {
       camera_io: false,
       tabShow: false,
-      label: ['顯示QRcode', '掃描QRcode'],
+      label: ['Login', 'Setup'],
     };
   }
 
@@ -74,89 +73,57 @@ export default class qrcode extends Component {
 
         <ScrollableTabView
           renderTabBar={() => <ScrollableTabBar />}
-          tabBarBackgroundColor='#fff'
-          tabBarActiveTextColor='#6787A0'
-          tabBarUnderlineStyle='#2562b4'
-
-          tabBarInactiveTextColor='#333'
-
+          // renderTabBar={() => <Button
+          //   title="新ＩＤ"
+          //   onPress={() => {
+          //     // this.save();
+          //   }} />}
+          tabBarBackgroundColor='#2A2E43'
+          tabBarActiveTextColor='#ffffff'
+          tabBarInactiveTextColor='#6787A0'
+          // tabBarUnderlineStyle='#6787A0'
+          // tabStyle={{borderRadius:15,backgroundColor:"#ff00ff"}}
+          // tabStyle={{color: 'red'}}
           onChangeTab={() => this.setState({ camera_io: !this.state.camera_io })}
           tabBarUnderlineStyle={styles.tabBarUnderline}
+          
         >
-          {/* label: ['推荐', '新品', '居家', '餐厨', '配件', '服装', '电器', '洗护', '杂货', '饮食', '婴童', '志趣'], */}
 
           {
             label.map((item, index) => {
-
               switch (item) {
-
-
-                case '顯示QRcode':
-                  //  this.state.camera_io=false;
-
-
-                  // this.setState({
-                  //   camera_io: false
-                  // }, () => {
-
-                  // });
-
-                  // this.state.camera_io = false;
+                case 'Login':
                   return (
-                    <Qrcode tabLabel={item} key={index} />
+                    <Setup tabLabel={item} key={index} />
                   )
                   break;
-                case '掃描QRcode':
-
-                  // this.setState({
-                  //   camera_io: true
-                  // }, () => {
-
-                  //   console.warn("YOOOOOOO")
-
-                  // });
-                     // this.state.camera_io=true;
-                    //  this.state.camera_io = true;
+                case 'Setup':
                      return (
-                      <Scanner tabLabel={item} key={index} />
+                      <Btn_Setup tabLabel={item} key={index} />
                     )
-
                   break;
-
                 default:
                   return (
-                    <Qrcode tabLabel={item} key={index} />
+                    <Setup tabLabel={item} key={index} />
                   )
                   break;
               }
             })
           }
         </ScrollableTabView>
-
       )
     }
-
   }
-
   render() {
     return (
-
-
-
       <SafeAreaView style={styles.container}>
         <View style={{ flex: 1, backgroundColor: 'white' }}>
           {this.renderScrollableTab()}
         </View>
-
       </SafeAreaView>
-
-
     );
   };
 }
-
-
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -165,9 +132,9 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
   },
   tabBarUnderline: {
-    backgroundColor: '#2562b4',
+    backgroundColor: '#FFF',
     height: 3,
-    width: width / 3,
+    // width: width / 3,
     // marginLeft: 6
   }
 });

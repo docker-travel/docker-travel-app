@@ -39,6 +39,18 @@
 	<string>1C--y-MgJBGo3fE3n2m2y5x7wwSXb8c3ce31-f1dc-4382-a512-82d8f44b7174</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+<key>NSCameraUsageDescription</key>
+<string>Your message to user when the camera is accessed for the first time</string>
+
+<!-- Include this only if you are planning to use the camera roll -->
+<key>NSPhotoLibraryUsageDescription</key>
+<string>Your message to user when the photo library is accessed for the first time</string>
+
+<!-- Include this only if you are planning to use the microphone for video recording -->
+<key>NSMicrophoneUsageDescription</key>
+<string>Your message to user when the microsphone is accessed for the first time</string>
+
+
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>

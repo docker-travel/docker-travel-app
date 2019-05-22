@@ -314,6 +314,7 @@ clear() {
                  onMessage={this.onMessage} 
                  javaScriptEnabled={true} 
                  source={require('./pages/canvas-text-test.html')}
+
                  /> 
                   {/* <WebView
                   ref={'webviewRef'} 
