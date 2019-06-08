@@ -80,36 +80,32 @@ export default class Login_index extends Component {
   };
   componentDidMount() {
     //检测网络是否连接
-
     // this.getStorage().done();
     this.check_ID_Storage().done();
-
-
-
   }
 
   onMessage(e) {
     // let text = "眼前这位咽了一口口水的少女，名字是，叫啥来着？忘了。的少女，名字是，叫啥来着？忘了的少女，名字是，叫啥来着？忘了";
     // let a = 4;
     // let b = 6;
- 
+
     console.warn(e)
 
-   
-      // alert(e);
-//+886910927898
 
-// var event =e.nativeEvent;
-//   var data=JSON.parse(event.data);
+    // alert(e);
+    //+886910927898
 
-      // var event = e.nativeEvent;
-      // var data = JSON.parse(even);
-      // alert(data);
-      // console.warn(data)
+    // var event =e.nativeEvent;
+    //   var data=JSON.parse(event.data);
 
-      // this.setState({ userToken: "'"+e+"'" });
-      // alert("data");
-      // alert(e);
+    // var event = e.nativeEvent;
+    // var data = JSON.parse(even);
+    // alert(data);
+    // console.warn(data)
+
+    // this.setState({ userToken: "'"+e+"'" });
+    // alert("data");
+    // alert(e);
 
 
     // this.indexHistory.push(data);
@@ -140,6 +136,7 @@ export default class Login_index extends Component {
         this.props.navigation.push('Home')
       }
       else {
+        ///這段有問題...
         Alert('請登入');
         console.warn('請登入');
       }
@@ -327,35 +324,35 @@ export default class Login_index extends Component {
                 // source={{uri: 'https://my-fuck-awesome-project.firebaseapp.com/phone-invisible.html'}}
                  />
         </View> */}
-         < View style={styles.bottomContainer}>
-         
+        < View style={styles.bottomContainer}>
+
           <Jump_home />
           <TouchableOpacity
-          style={styles.bottomLoginSetup}
+            style={styles.bottomLoginSetup}
             onPress={() => {
               this.setModalVisible(true)
             }} >
             <Text>Login "&" Setup Modal</Text>
-            </TouchableOpacity>
+          </TouchableOpacity>
           < View style={styles.bottomRLContainer}>
-          <TouchableOpacity
-          style={styles.bottomFB}
-            onPress={() => {
-              this.setModalVisible(true)
-            }} >
-            <Text>FB Modal</Text>
+            <TouchableOpacity
+              style={styles.bottomFB}
+              onPress={() => {
+                this.setModalVisible(true)
+              }} >
+              <Text>FB Modal</Text>
 
             </TouchableOpacity>
 
-          <TouchableOpacity
-          style={styles.bottomGOOGLE}
-            onPress={() => {
-              this.setPhoneModalVisible(true)
-            }} >
-            <Text>GOOGLE Modal</Text>
+            <TouchableOpacity
+              style={styles.bottomGOOGLE}
+              onPress={() => {
+                this.setPhoneModalVisible(true)
+              }} >
+              <Text>GOOGLE Modal</Text>
 
             </TouchableOpacity>
-            </ View>
+          </ View>
 
         </View>
 
@@ -400,7 +397,7 @@ export default class Login_index extends Component {
         </View> */}
 
         {/* <Btn_Phone/> */}
-       
+
         <Modal
           animationType={"slide"}
           transparent={false}
@@ -448,14 +445,17 @@ export default class Login_index extends Component {
 
               <View style={{ width: width * 0.9, height: height * 0.5, backgroundColor: "white", padding: 10, borderRadius: 15, }}>
 
-              <WebView
-            ref={(ref) => { this.webview = ref; }}
-            // source={{ uri}}
-            style={{ flex: 1, backgroundColor: '#FCF' }}
-            source={{ uri: 'http://localhost:5000/phone-invisible.html' }}
-            injectedJavaScript={patchPostMessageJsCode}
-            onMessage={this.onMessage}
-          />
+                <WebView
+                  ref={(ref) => { this.webview = ref; }}
+                  // source={{ uri}}
+                  style={{ flex: 1, backgroundColor: '#FCF' }}
+                  // source={{ uri: 'http://localhost:5000/phone-invisible.html' }}
+                  source={{ uri: 'https://my-fuck-awesome-project.firebaseapp.com/phone-invisible.html' }}
+
+                  
+                  injectedJavaScript={patchPostMessageJsCode}
+                  onMessage={this.onMessage}
+                />
               </View>
 
               <View style={{
@@ -463,11 +463,7 @@ export default class Login_index extends Component {
                 alignItems: 'center',
                 justifyContent: "flex-end"
               }}>
-  <Button
-            title="新ＩＤ"
-            onPress={() => {
-              this.save();
-            }} />
+
 
                 <TouchableHighlight style={styles.Box} onPress={() => {
                   this.setPhoneModalVisible(!this.state.modalPhoneVisible);
@@ -528,15 +524,15 @@ const styles = StyleSheet.create({
 
   bottomContainer: {
     // height: 60,
-    flexDirection:"column",
+    flexDirection: "column",
     // paddingHorizontal: 10,
-    width:width*0.9,
+    width: width * 0.9,
     paddingVertical: 10,
     // marginBottom: 40,
   },
   bottomRLContainer: {
     height: 60,
-  
+
     flexDirection: 'row',
     // paddingHorizontal: 50,
     // paddingVertical: 10,
@@ -548,43 +544,43 @@ const styles = StyleSheet.create({
     position: 'absolute',
     // resizeMode: 'cover',
   },
-  bottomGOOGLE:{
+  bottomGOOGLE: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 10,
     backgroundColor: '#E82130',
     borderStyle: 'solid',
-    marginLeft:5,
+    marginLeft: 5,
     marginVertical: 5,
-    height:50,
+    height: 50,
 
-    
+
 
   },
-  bottomFB:{
+  bottomFB: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 10,
     backgroundColor: '#3B56C9',
     borderStyle: 'solid',
-    marginRight:5,
+    marginRight: 5,
     marginVertical: 5,
-    height:50,
+    height: 50,
 
 
   },
-  bottomLoginSetup:{
+  bottomLoginSetup: {
     // flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 10,
     backgroundColor: '#3B56C9',
     borderStyle: 'solid',
-    marginRight:5,
+    marginRight: 5,
     marginVertical: 5,
-    height:50,
+    height: 50,
 
   },
   button: {
