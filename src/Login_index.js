@@ -224,7 +224,7 @@ export default class Login_index extends Component {
     // },
     headerStyle: {
       // paddingHorizontal: 8,
-      backgroundColor: '#7094B1',
+      backgroundColor: '#00C4FF',
 
       // headerTitleStyle
       fontWeight: 'bold',
@@ -288,11 +288,12 @@ export default class Login_index extends Component {
 
       <View style={styles.container}>
         {/* <Image style={styles.background} source={{ uri: 'https://unsplash.it/800/600?random&blur' }} /> */}
-        <Image style={styles.background} source={require('./img/test.png')} />
+        {/* <Image style={styles.background} source={require('./img/test.png')} /> */}
         {/* <Image style={styles.background} source={{ uri: 'https://unsplash.it/800/600?image=102&blur' }} /> */}
         <View style={styles.container}>
           {/* <Btn_Login/> */}
-          <Text style={[styles.title, { fontSize: 90 }]}>源BOOK</Text>
+          {/* <Text style={[styles.title, { fontSize: 90 }]}>源BOOK</Text> */}
+          <Image source={require('./img/logo_mini.png')} />
           <Text style={[styles.title, { fontSize: 10 }]}>{this.state.userToken}</Text>
 
           {/* <Text style={[styles.title, { fontSize: 40}]}>Logo</Text> */}
@@ -335,14 +336,7 @@ export default class Login_index extends Component {
             <Text>Login "&" Setup Modal</Text>
           </TouchableOpacity>
           < View style={styles.bottomRLContainer}>
-            <TouchableOpacity
-              style={styles.bottomFB}
-              onPress={() => {
-                this.setModalVisible(true)
-              }} >
-              <Text>FB Modal</Text>
-
-            </TouchableOpacity>
+            
 
             <TouchableOpacity
               style={styles.bottomGOOGLE}
@@ -350,6 +344,14 @@ export default class Login_index extends Component {
                 this.setPhoneModalVisible(true)
               }} >
               <Text>GOOGLE Modal</Text>
+
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.bottomFB}
+              onPress={() => {
+                this.setModalVisible(true)
+              }} >
+              <Text>FB Modal</Text>
 
             </TouchableOpacity>
           </ View>
@@ -485,6 +487,7 @@ export default class Login_index extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: "#2A2E43",
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -551,7 +554,8 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     backgroundColor: '#E82130',
     borderStyle: 'solid',
-    marginLeft: 5,
+    marginRight: 5,
+
     marginVertical: 5,
     height: 50,
 
@@ -565,7 +569,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     backgroundColor: '#3B56C9',
     borderStyle: 'solid',
-    marginRight: 5,
+    marginLeft: 5,
     marginVertical: 5,
     height: 50,
 

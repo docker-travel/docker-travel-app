@@ -1,4 +1,4 @@
 <resources>
 	<string moduleConfig="true" name="reactNativeCodePush_androidDeploymentKey">xsHJBOlx-AcEx6lOJnJuKnkqgfV3b8c3ce31-f1dc-4382-a512-82d8f44b7174</string>
-    <string name="app_name">yuanbook</string>
+    <string name="app_name">dockerapp</string>
 </resources>

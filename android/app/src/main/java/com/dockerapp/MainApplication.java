@@ -1,4 +1,4 @@
-package com.yuanbook;
+package com.dockerapp;
 
 import android.app.Application;
 

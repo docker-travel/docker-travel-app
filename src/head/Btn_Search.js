@@ -58,7 +58,7 @@ componentDidMount() {
 //       </TouchableOpacity>
 <TouchableOpacity style={{    flex:1,}} onPress={() => { this.componentDidMount()}}>
 <View style={styles.searchBox}>
-          <Text style={styles.searchContent}> 收尋 </Text>
+          <Text style={styles.searchContent}> docker </Text>
       
         </View>
       </TouchableOpacity>
@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     // width:70,
     flex:1,
-    backgroundColor: '#ededed',
+    // backgroundColor: '#ededed',
     borderRadius: 5,
     height: 25,
     marginBottom:10,
@@ -89,7 +89,7 @@ const styles = StyleSheet.create({
     marginRight: 6,
   },
   searchContent: {
-    color: '#666',
+    color: '#fff',
     fontSize: 24,
   },
   });

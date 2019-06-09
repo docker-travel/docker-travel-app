@@ -15,6 +15,8 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
 
 import Animation from './Animation/Animation'
 import BookRead from './bookread/BookRead';
+import Nodelist from './Node/Nodelist';
+import Containerlist from './Container/Containerlist'
 
 //引用插件
 /*
@@ -56,9 +58,11 @@ class index_Screen extends React.Component {
   renderScrollableTab() {
 
     return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', }}>
 
         <Text  color='#6787A0' >Home!</Text>
+        <Image source={require('./img/logo_one.png')} />
+
         <Icon name="code" size={30} color="#900" />
 
         <Icon name="battery-full" size={30} color="#6787A0" />
@@ -107,6 +111,10 @@ export default createBottomTabNavigator({
    index_Screen: { screen: index_Screen },
    BookRead: { screen: BookRead },
    Animation: { screen: Animation },
+   Nodelist: { screen: Nodelist },
+   Containerlist: { screen: Containerlist },
+
+
 
   // index: { screen: index_Screen },
   // Other: { screen: Otherpage },
@@ -135,16 +143,28 @@ export default createBottomTabNavigator({
         // }
         if (routeName === 'index_Screen') {
           iconName = "address-card";
-        } else if (routeName === 'BookRead') {
-          iconName = "calendar-check";
+        } 
+        else if (routeName === 'Nodelist') {
+          iconName = "server";
+        } 
+        else if (routeName === 'Containerlist') {
+          iconName = "docker";
+        } 
+        
 
-        } else if (routeName === 'Animation') {
+        else if (routeName === 'BookRead') {
+          iconName = "calendar-check";
+        } 
+       
+        else if (routeName === 'Animation') {
           iconName = "home";
-        } else if (routeName === 'BookRead') {
-          iconName = "hiking";
-        }else if (routeName === 'BookRead') {
-          iconName = "user-circle";
-        }
+        } 
+        // else if (routeName === 'BookRead') {
+        //   iconName = "hiking";
+        // }
+        // else if (routeName === 'BookRead') {
+        //   iconName = "user-circle";
+        // }
         // 
         //calendar-minus
 
@@ -178,7 +198,7 @@ export default createBottomTabNavigator({
     ///下方tab bar icon 顏色 
 
     tabBarOptions: {
-      activeTintColor: '#6787A0',
+      activeTintColor: '#00C4FF',
       inactiveTintColor: '#7C7C7C',
       style: {
         backgroundColor: '#EFEFEF',
@@ -195,8 +215,8 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#EFEFEF',
-    ///下方tab bar 顏色 iphone X 下瀏海 顏色
+    backgroundColor:'#2A2E43'
+        ///下方tab bar 顏色 iphone X 下瀏海 顏色
   },  background: {
     height: 800,
     width: 600,

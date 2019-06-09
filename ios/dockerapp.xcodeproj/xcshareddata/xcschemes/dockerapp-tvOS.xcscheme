@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-               BuildableName = "yuanbook-tvOS.app"
-               BlueprintName = "yuanbook-tvOS"
-               ReferencedContainer = "container:yuanbook.xcodeproj">
+               BuildableName = "dockerapp-tvOS.app"
+               BlueprintName = "dockerapp-tvOS"
+               ReferencedContainer = "container:dockerapp.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -43,9 +43,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E48F1E0B4A5D006451C7"
-               BuildableName = "yuanbook-tvOSTests.xctest"
-               BlueprintName = "yuanbook-tvOSTests"
-               ReferencedContainer = "container:yuanbook.xcodeproj">
+               BuildableName = "dockerapp-tvOSTests.xctest"
+               BlueprintName = "dockerapp-tvOSTests"
+               ReferencedContainer = "container:dockerapp.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -61,9 +61,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E48F1E0B4A5D006451C7"
-               BuildableName = "yuanbook-tvOSTests.xctest"
-               BlueprintName = "yuanbook-tvOSTests"
-               ReferencedContainer = "container:yuanbook.xcodeproj">
+               BuildableName = "dockerapp-tvOSTests.xctest"
+               BlueprintName = "dockerapp-tvOSTests"
+               ReferencedContainer = "container:dockerapp.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -71,9 +71,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "yuanbook-tvOS.app"
-            BlueprintName = "yuanbook-tvOS"
-            ReferencedContainer = "container:yuanbook.xcodeproj">
+            BuildableName = "dockerapp-tvOS.app"
+            BlueprintName = "dockerapp-tvOS"
+            ReferencedContainer = "container:dockerapp.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -94,9 +94,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "yuanbook-tvOS.app"
-            BlueprintName = "yuanbook-tvOS"
-            ReferencedContainer = "container:yuanbook.xcodeproj">
+            BuildableName = "dockerapp-tvOS.app"
+            BlueprintName = "dockerapp-tvOS"
+            ReferencedContainer = "container:dockerapp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -113,9 +113,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "yuanbook-tvOS.app"
-            BlueprintName = "yuanbook-tvOS"
-            ReferencedContainer = "container:yuanbook.xcodeproj">
+            BuildableName = "dockerapp-tvOS.app"
+            BlueprintName = "dockerapp-tvOS"
+            ReferencedContainer = "container:dockerapp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

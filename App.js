@@ -204,7 +204,7 @@ class HomeScreen extends React.Component {
     //  headerTitle:<Text >FUCK</Text>,
     headerStyle: {
       // backgroundColor: '#f4511e',
-      backgroundColor: '#7592A9',
+      backgroundColor: '#00C4FF',
       ///上方tab bar 顏色 iphone X 上瀏海 顏色
 
       activeTintColor: '#2562b4',
