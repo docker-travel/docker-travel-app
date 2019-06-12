@@ -27,6 +27,7 @@ import LoginTabs from '../src/setup/LoginTabs';
 import Btn_Login from '../src/components/Btn_Login';
 import Jump_home from '../src/components/Jump_home';
 
+import Add from './Add' ;
 
 // import Btn_Phone from './app/page/Login/Btn_Phone';
 
@@ -293,11 +294,14 @@ export default class Login_index extends Component {
         <View style={styles.container}>
           {/* <Btn_Login/> */}
           {/* <Text style={[styles.title, { fontSize: 90 }]}>源BOOK</Text> */}
-          <Image source={require('./img/logo_mini.png')} />
+          <Image  style={{height:height*0.5}} resizeMode="contain"source={require('./img/logo_mini.png')} />
+
           <Text style={[styles.title, { fontSize: 10 }]}>{this.state.userToken}</Text>
 
           {/* <Text style={[styles.title, { fontSize: 40}]}>Logo</Text> */}
         </View>
+        {/* < Add width = { 100 } height = { 100 } color = { '#0d0' } ></ Add > */}
+
         {/* <Button
           title="handleClick"
           onPress={() => {

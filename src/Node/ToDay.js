@@ -60,73 +60,6 @@ const items_Text =[
  },
 ]
 
-// class Card_A extends React.Component {
-
-
-//   // 滑动tab
-//   renderScrollableTab() {
-//     return (
-//       <View style={{ flex: 1,padding:15,     }}>
-//         <View style={{ flex: 1, flexDirection:'column',justifyContent: 'center'}}>
-
-//         {/* <Text style={{ fontSize:22, }}>{items_Text[0].children[0].title }</Text> */}
-//         <Text style={{ fontSize:22, }}>{msg.announcement[0].title}</Text>
-
-//                   {/* <Icon>{items_Text[0].children[0].name }</Icon> */}
-
-//         </View>
-
-//         <View style={{ flex: 2, justifyContent: 'center', alignItems: 'center' }}>
-//         {/* <Text style={{ fontSize:14,flex: 1,lineHeight:24, justifyContent: 'center', alignItems: 'center' }}>{items_Text[0].children[0].bady }</Text> */}
-//         <Text style={{ fontSize:14,flex: 1,lineHeight:24, justifyContent: 'center', alignItems: 'center' }}>{msg.announcement[0].detail}</Text>
-//         {/* <Text style={{ fontSize:14,flex: 1,lineHeight:24, justifyContent: 'center', alignItems: 'center' }}>{msg.excutionResult}</Text> */}
-
-//         </View>
-
-//       </View>
-// ////待實作for迴圈自動填入
-//     )
-//   }
-
-//   render() {
-//     return (
-
-         
-//           <View style={styles.card}>
-//             {this.renderScrollableTab()}
-
-
-//           </View>
-//     );
-//   }
-// }
-
-
-// class Card_A extends React.Component {
-
-
-//   // 滑动tab
-//   renderScrollableTab() {
-//     return (
-//       <View style={{ flex: 1,padding:15,     }}>
-//         <View style={{ flex: 1, flexDirection:'column',justifyContent: 'center'}}>
-//         <Text style={{ fontSize:22, }}>{msg.announcement[0].title}</Text>
-//         </View>
-//         <View style={{ flex: 2, justifyContent: 'center', alignItems: 'center' }}>
-//         <Text style={{ fontSize:14,flex: 1,lineHeight:24, justifyContent: 'center', alignItems: 'center' }}>{msg.announcement[0].detail}</Text>
-//         </View>
-//       </View>
-//     )
-//   }
-//   render() {
-//     return (
-//           <View style={styles.card}>
-//           {this.props.name}
-//           </View>
-//     );
-//   }
-// }
-
 
 let info_data;
 export default class ToDay extends Component {
@@ -163,7 +96,6 @@ _onRefresh = () => {
   this.JSON_Post()
     // this.setState({refreshing: false});
 }
-
   JSON_Post = () => {
     // let url = 'https://asia-northeast1-test-cf2e8.cloudfunctions.net/postjson';
     let url = 'https://us-central1-my-fuck-awesome-project.cloudfunctions.net/getAnnouncement';
@@ -264,13 +196,6 @@ getStorage = async () => {
             infoBody={note.detail} />
            );
         })}
-
-{/* 
-                <CardNotice infoTitle={msg.announcement[3].title} infoBody={msg.announcement[0].detail}/> 
-                <CardNotice infoTitle={msg.announcement[0].title} infoBody={msg.announcement[1].detail}/> 
-                <CardNotice infoTitle={msg.announcement[1].title} infoBody={msg.announcement[2].detail}/>  */}
-          {/* <Button style={styles.ButtonCard}/> */}
-          {/* <TouchableOpacity title='GET' style={styles.ButtonCard} onPress={this.JSON_Post}/> */}
 
 
        

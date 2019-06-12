@@ -3,24 +3,28 @@ import {
   StyleSheet,
   View,
   Dimensions,
-  Image
+  Image,
+  TouchableOpacity,
 } from 'react-native';
-import SvgDockerOn from '../img/icon/SvgDockerOn';
 
 
 // 取得屏幕的宽高Dimensions
 const { width, height } = Dimensions.get('window');
+import SvgDockerOn from '../img/icon/Sdcard';
+
 
 export default class Card extends Component {
   render() {
     return (
       <View style={[styles.card]}>
-<SvgDockerOn style={styles.backgroundimg} />
+        <SvgDockerOn style={styles.backgroundimg} />
+
         {/* <Image style={styles.backgroundimg} source={require('../img/docker_on.png')} />  */}
         <View style={styles.background}>
-
 {this.props.body}
+
 </View>
+
 
       </View>
 
@@ -39,14 +43,15 @@ export default class Card extends Component {
 
 const styles = StyleSheet.create({
   card: {
+    flex:1,
     // flexDirection: 'column',
     // alignItems: 'center',
     // justifyContent: 'center',
-    width: width * 0.9,
-    padding: 15,
-    // backgroundColor: '#FFFFFF',
-    borderRadius: 10,
-    marginVertical: 10,
+    // width: width * 0.5,
+    // padding: 5,
+    // backgroundColor: '#6E7493',
+    // borderRadius: 50,
+    // marginVertical: 90,
     shadowColor: '#000000',
     shadowRadius: 8,
     shadowOpacity: 0.4,
@@ -55,21 +60,27 @@ const styles = StyleSheet.create({
       width: 0,
       height: 4
     },
-    marginHorizontal: width * 0.05,
+    marginHorizontal: 10,
   },
   background: {
+    flex:1,
     // height: 90,
-    // width: 350,
-    // position: 'absolute',
+    width: width*0.45,
     // resizeMode: 'cover',
+        paddingVertical: 35,
+        paddingHorizontal: 20,
+
+    // backgroundColor: '#6E93',
+
+    position: 'absolute',
+
   },
   backgroundimg: {
-    height: 90,
-    width: 350,
-    position: 'absolute',
+    // height: 90,
+    // width: 350,
     // paddingVertical: 15,
 //paddingRight:100,
-// marginRight:20,
+// marginRight:-20,
     // resizeMode: 'cover',
   },
 });

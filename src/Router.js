@@ -17,6 +17,7 @@ import Animation from './Animation/Animation'
 import BookRead from './bookread/BookRead';
 import Nodelist from './Node/Nodelist';
 import Containerlist from './Container/Containerlist'
+import Imagelist from './DockerImage/Imagelist'
 
 //引用插件
 /*
@@ -61,7 +62,7 @@ class index_Screen extends React.Component {
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', }}>
 
         <Text  color='#6787A0' >Home!</Text>
-        <Image source={require('./img/logo_one.png')} />
+        <Image  style={{height:height*0.25}} resizeMode="contain" source={require('./img/logo_one.png')} />
 
         <Icon name="code" size={30} color="#900" />
 
@@ -71,6 +72,12 @@ class index_Screen extends React.Component {
         <Icon name="battery-quarter" size={30} color="#900" />
         <Icon name="battery-empty" size={30} color="#900" />
         <Icon name="bed" size={30} color="#900" />
+        <Icon name="grip-horizontal" size={30} color="#900" />
+        <Icon name="toggle-on" size={30} color="#6787A0" />
+        <Icon name="toggle-off" size={30} color="#6787A0" />
+        <Icon name="power-off" size={30} color="#6787A0" />
+        <Icon name="broadcast-tower" size={30} color="#6787A0" />
+
 
         
         <Icon name="american-sign-language-interpreting" size={30} color="#777" />
@@ -113,8 +120,9 @@ export default createBottomTabNavigator({
    Animation: { screen: Animation },
    Nodelist: { screen: Nodelist },
    Containerlist: { screen: Containerlist },
+   Imagelist: { screen: Imagelist },
 
-
+   
 
   // index: { screen: index_Screen },
   // Other: { screen: Otherpage },
@@ -150,10 +158,14 @@ export default createBottomTabNavigator({
         else if (routeName === 'Containerlist') {
           iconName = "docker";
         } 
+        else if (routeName === 'Imagelist') {
+          iconName = "database";
+        } 
+        
         
 
         else if (routeName === 'BookRead') {
-          iconName = "calendar-check";
+          iconName = "memory";
         } 
        
         else if (routeName === 'Animation') {

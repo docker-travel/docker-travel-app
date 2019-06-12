@@ -12,8 +12,8 @@ import {
 
 // 取得屏幕的宽高Dimensions
 const { width, height } = Dimensions.get('window');
-import Card from './Card_Container';
-
+import Card from './Card_Image';
+import Icon from 'react-native-vector-icons/FontAwesome5';
 export default class CardNotice extends Component {
   constructor(props) {
     super(props);
@@ -37,7 +37,7 @@ export default class CardNotice extends Component {
         templen++
       }
       if (templen == len) {
-        return str.substring(0, i + 1) + suffix;
+        return str.substring(7, i + 1) + suffix;
       } else if (templen > len) {
         return str.substring(0, i) + suffix;
       }
@@ -79,58 +79,59 @@ export default class CardNotice extends Component {
     return (
       <View >
         <Card body={
-          <View style={{ flex: 1, flexDirection: 'row', }}>
+          <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'center' }}>
 
-
+<TouchableOpacity style={{ flex: 1, flexDirection: 'row', justifyContent: 'center' }} onPress={() => { this.setModalVisible() }} >
+             
             {/* {this.state.isConnected ?  <Image style={styles.icon} source={require('../img/icon_on.png')} />:   <Image style={styles.icon} source={require('../img/icon_off.png')} /> } */}
-            {this.props.infoState == "running" ? <Image style={styles.icon} source={require('../img/icon_on.png')} /> : <Image style={styles.icon} source={require('../img/icon_off.png')} />}
 
-            <View style={{ flex: 2.5, flexDirection: 'column', justifyContent: 'center', paddingHorizontal: 5, }}>
+            <View style={{ flex: 1, flexDirection: 'column', justifyContent: 'center', paddingHorizontal: 10, }}>
+             
+           
+
               {/* <Text style={{ fontSize: 22, }}>{this.props.infoTitle}</Text> */}
-              <Text style={{ fontSize: 10, }}>{this.props.infoTitle}</Text>
-              <Text style={{ fontSize: 10, }}>{this.props.infoStauts}</Text>
+              <Text style={{ fontSize: 12, }}>{this.props.infoTitle}</Text>
+
+              <Text style={{ fontSize: 12, }}>{"Labels:" + this.props.infoLabels}</Text>
+              <Text style={{ fontSize: 12, }}>{"Created:" + this.props.infoCreated}</Text>
+
               {/* <Text style={{ fontSize: 12,}}>{"ID:"+this.cutString(this.props.infoTitle,16)}</Text> */}
-              {/* <Text style={{ fontSize: 12,}}>{"State:"+this.props.infoState}</Text> */}
-              <Text style={{ fontSize: 10, }}>{"ID:" + this.cutString(this.props.infoBody, 16)}</Text>
-              {/* <Text style={{ fontSize: 8,}}>{this.props.SizeRootFs}</Text> */}
+
+              <Text style={{ fontSize: 12, }}>{"Size:" + this.props.infoSize}</Text>
+              {/* <Text style={{ fontSize: 12,}}>{"ID:"+this.props.infoBody}</Text> */}
+              <Text style={{ fontSize: 12, }}>{"ID:" + this.cutString(this.props.infoBody, 15)}</Text>
 
               {/* <Text style={{ fontSize: 12,}}>{"ID:"+this.state.dockerID}</Text> */}
+
+
+
               {/* <Text style={{ fontSize: 14, flex: 1, lineHeight: 24, justifyContent: 'center', alignItems: 'center' }}>
               {this.props.infoBody}</Text> */}
+
+         
             </View>
-            {this.props.infoState == "running" ?
-              <View style={{ flex: 1, flexDirection: 'column', justifyContent: 'center', paddingHorizontal: 5, }}>
-                <Text style={{ fontSize: 8, }}>Ports:</Text>
-                <Text style={{ fontSize: 8, }}>{this.props.infoPorts[0].IP}</Text>
-                <Text style={{ fontSize: 8, }}>{this.props.infoPorts[0].PrivatePort}</Text>
-                <Text style={{ fontSize: 8, }}>{this.props.infoPorts[0].PublicPort}</Text>
-              </View> :
-              <View />
-            }
 
 
 
-            {/* {this.state.ContainerStauts ?  */}
-            {this.props.infoState == "running" ?
-
-              <TouchableOpacity onPress={() => { this.setModalVisible() }} >
-                <Image style={styles.icon} source={require('../img/icon_stop.png')} />
-              </TouchableOpacity>
-              :
-              <TouchableOpacity onPress={() => { this.setModalVisible() }} >
-                <Image style={styles.icon} source={require('../img/icon_start.png')} />
-              </TouchableOpacity>
-            }
+            {/* {this.state.ContainerStauts ? 
+                <TouchableOpacity onPress={() => {this.setModalVisible()}} >
+                <Image style={styles.icon} source={require('../img/icon_start.png')} /> 
+                </TouchableOpacity>
+             :   
+             <TouchableOpacity onPress={() => {this.setModalVisible()}} >
+             <Image style={styles.icon} source={require('../img/icon_stop.png')} /> 
+             </TouchableOpacity>
+             }
 
 
 
 
-            <TouchableOpacity onPress={() => { this.setModalVisible() }} >
-              <Image style={styles.icon} source={require('../img/icon_restart.png')} />
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => { this.setModalVisible() }} >
-              <Image style={styles.icon} source={require('../img/icon_log.png')} />
-            </TouchableOpacity>
+          <TouchableOpacity onPress={() => {this.setModalVisible()}} >
+          <Image style={styles.icon} source={require('../img/icon_restart.png')} /> 
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => {this.setModalVisible()}} >
+          <Image style={styles.icon} source={require('../img/icon_log.png')} /> 
+          </TouchableOpacity> */}
 
 
 
@@ -140,7 +141,7 @@ export default class CardNotice extends Component {
               {"NUTC_R720XD"}</Text>
             </View> */}
 
-
+</TouchableOpacity>
 
           </View>
         } />

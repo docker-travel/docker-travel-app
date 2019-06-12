@@ -12,13 +12,14 @@ import {
   TextInput,
   Button,
   RefreshControl,
-  Alert
+  Alert,
+  ListView
 } from 'react-native';
 
 import { SafeAreaView, } from 'react-navigation';
 // import CardNotice from './CardNotice'
-import CardNotice from './CardNotice_Container';
-import Dashboard from './Dashboard_Container';
+import CardNotice from './CardNotice_Image';
+import Dashboard from './Dashboard_Image';
 
 // 取得屏幕的宽高Dimensions
 const { width, height } = Dimensions.get('window');
@@ -27,58 +28,33 @@ const { width, height } = Dimensions.get('window');
 
 const items_Text = [
   {
-    "Id": "8cc94a2184d9d977722e9acb0536848fc3777a42f84fb2c2be0b0f9a45e55302",
-    "Names": [
-        "/my_servers"
+    "Containers": -1,
+    "Created": 1559585757,
+    "Id": "sha256:00aba00f126e8589e9d4480a3705ff040c196a458e7d891983d065739e37e6f4",
+    "Labels": null,
+    "ParentId": "sha256:9708a3d924e9b54f550cd7602b5667afbb205c7953257de2e845d2834da146be",
+    "RepoDigests": null,
+    "RepoTags": [
+      "ubuntu_sshd:latest"
     ],
-    "Image": "ubuntu_sshd",
-    "ImageID": "sha256:00aba00f126e8589e9d4480a3705ff040c196a458e7d891983d065739e37e6f4",
-    "Command": "/usr/sbin/sshd -D",
-    "Created": 1560141324,
-    "Ports": [
-        {
-            "IP": "0.0.0.0",
-            "PrivatePort": 22,
-            "PublicPort": 49154,
-            "Type": "tcp"
-        }
+    "SharedSize": -1,
+    "Size": 166244113,
+    "VirtualSize": 166244113
+  },
+  {
+    "Containers": -1,
+    "Created": 1558938380,
+    "Id": "sha256:aecfbc849176b1c848045aa772a73dce54e1406a79292fcc4f0fcec30fd2710a",
+    "Labels": null,
+    "ParentId": "sha256:47f3ad4e1d2fcf7258d0cd6cd1a0e342c393ec07b5c22cca730db772272a0cfd",
+    "RepoDigests": null,
+    "RepoTags": [
+      "friendlyhello:latest"
     ],
-    "Labels": {},
-    "State": "running",
-    "Status": "Up 39 hours",
-    "HostConfig": {
-        "NetworkMode": "default"
-    },
-    "NetworkSettings": {
-        "Networks": {
-            "bridge": {
-                "IPAMConfig": null,
-                "Links": null,
-                "Aliases": null,
-                "NetworkID": "e1d6e8a7c9393d1e5b9e23a60a5e21dedc753be4e533bb8c75e774ecbda358c6",
-                "EndpointID": "0aadf8306099c3d5f8cda6231eb19182d322c0dd020ca2a7c0f25ad5fb617556",
-                "Gateway": "172.17.0.1",
-                "IPAddress": "172.17.0.3",
-                "IPPrefixLen": 16,
-                "IPv6Gateway": "",
-                "GlobalIPv6Address": "",
-                "GlobalIPv6PrefixLen": 0,
-                "MacAddress": "02:42:ac:11:00:03",
-                "DriverOpts": null
-            }
-        }
-    },
-    "Mounts": [
-        {
-            "Type": "bind",
-            "Source": "/home/user/data",
-            "Destination": "/mnt/data",
-            "Mode": "",
-            "RW": true,
-            "Propagation": "rprivate"
-        }
-    ]
-},
+    "SharedSize": -1,
+    "Size": 105514563,
+    "VirtualSize": 105514563
+  },
 ]
 
 
@@ -86,10 +62,15 @@ let info_data;
 export default class Containerlist extends Component {
   constructor() {
     super();
+    var ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+
     this.state = {
       refreshing: false,
       isLoading: true,
       userToken: "",
+      // dataSource:{"name":"as","price":10},
+      dataSource: ds.cloneWithRows(['row 1', 'row 2']),
+
       announcement: [
         {
           "Containers": -1,
@@ -126,7 +107,7 @@ export default class Containerlist extends Component {
   JSON_Post = () => {
     // let url = 'https://asia-northeast1-test-cf2e8.cloudfunctions.net/postjson';
     // let url = 'https://us-central1-my-fuck-awesome-project.cloudfunctions.net/getAnnouncement';
-    let url = 'http://106.104.114.80:2375/containers/json?all=true';
+    let url = 'http://106.104.114.80:2375/images/json';
 
     fetch(url).then((response) => {
       return response.json();
@@ -137,8 +118,8 @@ export default class Containerlist extends Component {
       // this.JSON_body();
       console.warn('OK:');
 
-      if (jsonData[0] != null) {
-        console.warn(jsonData[0].Names);
+      if (jsonData[0].Containers == "-1") {
+        console.warn(jsonData[0].RepoTags);
         // console.warn(this.state.announcement);
         Alert.alert("更新成功");
         this.setState({ refreshing: false, isLoading: false, announcement: jsonData });
@@ -195,6 +176,10 @@ export default class Containerlist extends Component {
   //   // console.warn('User -> ', user.toJSON());
   //   // await firebase.analytics().logEvent('foo', { bar: '123'});
   // }
+  renderRow () {
+    return <View style={styles.Listcard}>
+             <Text>{rowData.name} {rowData.price}</Text>
+           </View>}
   render() {
     if (this.state.isLoading) {
       return (
@@ -206,6 +191,16 @@ export default class Containerlist extends Component {
         <SafeAreaView style={styles.container}>
 
           <Dashboard />
+          {/* <ListView
+  contentContainerStyle={styles.listView}
+  dataSource={this.state.dataSource}
+  // renderRow={this.renderRow.bind(this)}
+  renderRow={(rowData) => <Text>{rowData}</Text>}
+
+/> */}
+
+
+
           <ScrollView style={styles.Scrollcontainer}
             refreshControl={
               <RefreshControl
@@ -213,20 +208,22 @@ export default class Containerlist extends Component {
                 onRefresh={this._onRefresh} />}>
             {/* <CardNotice infoTitle={this.state.announcement[0].title} infoBody={this.state.announcement[2].detail}/>  */}
 
+            <View style={{ flex: 1, flexDirection: 'row',flexWrap:"wrap" }}>
+
             {this.state.announcement.map((note) => {
               return (
                 <CardNotice
-                  infoTitle={note.Names}
-                  infoBody={note.Image}
-                  infoState={note.State}
-                  infoPorts={note.Ports}
-                  infoStauts={note.Status}
-                   />
+                  infoTitle={note.RepoTags}
+                  infoBody={note.Id}
+                  infoSize={note.Size}
+                  infoLabels={note.Labels}
+                  infoCreated={note.Created}
+                  />
               );
             })}
 
 
-
+</View>
             <Button
               title="新2"
               onPress={() => {
@@ -327,4 +324,15 @@ const styles = StyleSheet.create({
       height: 4
     }
   },
+  listView: {
+    flexDirection: 'row',
+    flexWrap: 'wrap'
+  },
+  Listcard: {
+    backgroundColor: 'red',
+    width: (width / 2) - 15,
+    height: 300,
+    marginLeft: 10,
+    marginTop: 10
+  } 
 });

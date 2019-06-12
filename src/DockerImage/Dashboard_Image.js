@@ -3,9 +3,9 @@ import {
   StyleSheet,
   View,
   Dimensions,
-  Image
+  Image,
+  Text
 } from 'react-native';
-import SvgDockerOn from '../img/icon/SvgDockerOn';
 
 
 // 取得屏幕的宽高Dimensions
@@ -14,13 +14,24 @@ const { width, height } = Dimensions.get('window');
 export default class Card extends Component {
   render() {
     return (
-      <View style={[styles.card]}>
-<SvgDockerOn style={styles.backgroundimg} />
-        {/* <Image style={styles.backgroundimg} source={require('../img/docker_on.png')} />  */}
-        <View style={styles.background}>
+      <View style={styles.card}>
+        <View style={{ flex: 1, flexDirection: 'column', justifyContent: 'center',paddingHorizontal:10, backgroundColor:"#6E7493",    borderRadius: 10,
+}}>
+        <Text style={{ fontSize: 22,color:"#FFF"}}>{"Image儀表板"}</Text>
 
-{this.props.body}
-</View>
+        </View>
+
+
+<View style={{ flex: 3, flexDirection: 'column', justifyContent: 'center',paddingHorizontal:10, }}>
+              {/* <Text style={{ fontSize: 22, }}>{this.props.infoTitle}</Text> */}
+              <Text style={{ fontSize: 22,}}>{"Python3_23"}</Text>
+              <Text style={{ fontSize: 12,}}>{"Python3_23"}</Text>
+              {/* <Text style={{ fontSize: 14, flex: 1, lineHeight: 24, justifyContent: 'center', alignItems: 'center' }}>
+              {this.props.infoBody}</Text> */}
+            </View>
+
+        
+
 
       </View>
 
@@ -29,7 +40,7 @@ export default class Card extends Component {
 }
 
 
-{/*Ex
+{/*Ex        
   <Card body={
   <View style={{ flex: 1, }}>
     <Text style={{ fontSize: 22, }}>HI</Text>
@@ -42,9 +53,10 @@ const styles = StyleSheet.create({
     // flexDirection: 'column',
     // alignItems: 'center',
     // justifyContent: 'center',
+    height:height*0.2,
     width: width * 0.9,
-    padding: 15,
-    // backgroundColor: '#FFFFFF',
+    // padding: 15,
+    backgroundColor: '#FFFFFF',
     borderRadius: 10,
     marginVertical: 10,
     shadowColor: '#000000',

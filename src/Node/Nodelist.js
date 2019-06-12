@@ -20,6 +20,9 @@ import { SafeAreaView, } from 'react-navigation';
 import CardNotice from './CardNotice';
 import Dashboard from './Dashboard';
 
+import SvgDockerOn from '../img/icon/SvgDockerOn';
+
+
 // 取得屏幕的宽高Dimensions
 const { width, height } = Dimensions.get('window');
 
@@ -174,6 +177,8 @@ getStorage = async () => {
   //   // console.warn('User -> ', user.toJSON());
   //   // await firebase.analytics().logEvent('foo', { bar: '123'});
   // }
+  // {this.state.isConnected ?  <Image style={styles.icon} source={require('../img/icon_on.png')} />:   <Image style={styles.icon} source={require('../img/icon_off.png')} /> }
+
       render() {
         if(this.state.isLoading){
           return(
@@ -181,10 +186,16 @@ getStorage = async () => {
           )
         }
         else{
+          
+
         return (
           <SafeAreaView style={styles.container}> 
 
 <Dashboard/>
+{/* <SvgDockerOn/> */}
+
+
+
           <ScrollView style={styles.Scrollcontainer}
           refreshControl={
             <RefreshControl

@@ -4,10 +4,10 @@ import {
   View,
   Dimensions,
   Image,
-  Text
+  Text,
+  TouchableOpacity
 } from 'react-native';
-
-
+import LoginModal  from "../MsgModal/LoginModal"
 // 取得屏幕的宽高Dimensions
 const { width, height } = Dimensions.get('window');
 
@@ -21,6 +21,8 @@ export default class Card extends Component {
 
         </View>
 
+        {/* <TouchableOpacity style={{ flex: 1, flexDirection: 'row', justifyContent: 'center' }} onPress={() => { this.setModalVisible() }} > */}
+        <LoginModal/>
 
 <View style={{ flex: 3, flexDirection: 'column', justifyContent: 'center',paddingHorizontal:10, }}>
               {/* <Text style={{ fontSize: 22, }}>{this.props.infoTitle}</Text> */}
@@ -29,9 +31,8 @@ export default class Card extends Component {
               {/* <Text style={{ fontSize: 14, flex: 1, lineHeight: 24, justifyContent: 'center', alignItems: 'center' }}>
               {this.props.infoBody}</Text> */}
             </View>
-
+{/* </TouchableOpacity> */}
         
-
 
       </View>
 
