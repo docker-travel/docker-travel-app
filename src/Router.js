@@ -18,7 +18,7 @@ import BookRead from './bookread/BookRead';
 import Nodelist from './Node/Nodelist';
 import Containerlist from './Container/Containerlist'
 import Imagelist from './DockerImage/Imagelist'
-
+import Dockerfile from"./Dockerfile/Dockerfile"
 //引用插件
 /*
 import Otherpage from './page/home/otherpage';
@@ -63,6 +63,7 @@ class index_Screen extends React.Component {
 
         <Text  color='#6787A0' >Home!</Text>
         <Image  style={{height:height*0.25}} resizeMode="contain" source={require('./img/logo_one.png')} />
+        <View style={{ flex: 1, flexDirection: 'row',flexWrap:"wrap" }}>
 
         <Icon name="code" size={30} color="#900" />
 
@@ -72,17 +73,41 @@ class index_Screen extends React.Component {
         <Icon name="battery-quarter" size={30} color="#900" />
         <Icon name="battery-empty" size={30} color="#900" />
         <Icon name="bed" size={30} color="#900" />
+    
+        
+        <Icon name="american-sign-language-interpreting" size={30} color="#777" />
+        </View>
+        <View style={{ flex: 1, flexDirection: 'row',flexWrap:"wrap" }}>
         <Icon name="grip-horizontal" size={30} color="#900" />
         <Icon name="toggle-on" size={30} color="#6787A0" />
         <Icon name="toggle-off" size={30} color="#6787A0" />
         <Icon name="power-off" size={30} color="#6787A0" />
         <Icon name="broadcast-tower" size={30} color="#6787A0" />
+        <Icon name="boxes" size={30} color="#6787A0" />
+        <Icon name="clone" size={30} color="#6787A0" />
+        </View>
+        <View style={{ flex: 1, flexDirection: 'row',flexWrap:"wrap" }}>
+        <Icon name="copy" size={30} color="#900" />
+        <Icon name="file-alt" size={30} color="#6787A0" />
+        <Icon name="file-code" size={30} color="#6787A0" />
+        <Icon name="cut" size={30} color="#6787A0" />
+        <Icon name="paste" size={30} color="#6787A0" />
+        <Icon name="save" size={30} color="#6787A0" />
+        <Icon name="sticky-note" size={30} color="#6787A0" />
+        <Icon name="folder" size={30} color="#6787A0" />
+        <Icon name="folder-open" size={30} color="#6787A0" />
 
-
-        
-        <Icon name="american-sign-language-interpreting" size={30} color="#777" />
-
-      </View>
+        </View>
+        <View style={{ flex: 1, flexDirection: 'row',flexWrap:"wrap" }}>
+        <Icon name="caret-square-down" size={30} color="#900" />
+        <Icon name="upload" size={30} color="#6787A0" />
+        <Icon name="toggle-off" size={30} color="#6787A0" />
+        <Icon name="power-off" size={30} color="#6787A0" />
+        <Icon name="broadcast-tower" size={30} color="#6787A0" />
+        <Icon name="boxes" size={30} color="#6787A0" />
+        <Icon name="clone" size={30} color="#6787A0" />
+        </View>
+        </View>
 
     )
   }
@@ -116,11 +141,13 @@ export default createBottomTabNavigator({
 
   //  info: { screen: User },
    index_Screen: { screen: index_Screen },
-   BookRead: { screen: BookRead },
-   Animation: { screen: Animation },
+   Dockerfile: { screen: Dockerfile },
+
    Nodelist: { screen: Nodelist },
    Containerlist: { screen: Containerlist },
    Imagelist: { screen: Imagelist },
+   BookRead: { screen: BookRead },
+   Animation: { screen: Animation },
 
    
 
@@ -161,7 +188,11 @@ export default createBottomTabNavigator({
         else if (routeName === 'Imagelist') {
           iconName = "database";
         } 
-        
+        else if (routeName === 'Dockerfile'){
+          iconName = "file-code";
+
+        }
+
         
 
         else if (routeName === 'BookRead') {
