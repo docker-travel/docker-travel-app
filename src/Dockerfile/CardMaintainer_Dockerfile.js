@@ -5,6 +5,7 @@ import {
   Dimensions,
   Text,
   Image,
+  TextInput,
   NetInfo,
   TouchableOpacity
 } from 'react-native';
@@ -22,6 +23,8 @@ export default class CardMaintainer_Dockerfile extends Component {
       ContainerStauts: null,
       connectionInfo: null,
       dockerID: null,
+      text: null,
+
     };
   }
 
@@ -68,41 +71,40 @@ export default class CardMaintainer_Dockerfile extends Component {
         <Card body={
           <View style={styles.card}>
             <View style={styles.cordTop}>
-              {/* <Text > "'"'"'"''`Exec格式： RUN [“可执行文件”, “参数1”, “参数2”]`。 Shell格式：`RUN<命令>`，类似于直接在终端输入命令。例如： RUN echo `<h1>Hello, Docker!</h1>` > /usr/share/tomcat/welcome.html ''"'"'"'"</Text> */}
-              <Text >ddd</Text>
+            <Text style={styles.fontTitle} >指定作者</Text>
 
 
 
             </View>
-            <View style={styles.cordDoc}>
+            {/* <View style={styles.cordDoc}>
               <Text >ddd</Text>
               <Text >ddd</Text>
     
 
-            </View>
+            </View> */}
             <View style={styles.cordInput}>
-              <Text >ddd</Text>
+            <Text style={styles.fontTitle} >MAINTAINER </Text>
+            {/* <Text style={styles.fontTitle} >指定作者</Text> */}
+            <TextInput
+          style={styles.Input}
+          placeholder="  指定作者"
+          // onChangeText={(text) => this.setState({text})}
+          onChangeText={(text) => { this.state.text = text; }}
+        />
+
             </View>
-            <View style={styles.cordSelect}>
-              <Text >ddd</Text>
-            </View>
-            <View style={styles.cordBottom}>
+         
+            {/* <View style={styles.cordBottom}>
         
             <TouchableOpacity style={styles.BottomL} onPress={() => { this.setModalVisible() }} >
               <Text >L</Text>
 
-                {/* <Image style={styles.icon} source={require('../img/icon_stop.png')} /> */}
               </TouchableOpacity>
 
               <TouchableOpacity style={styles.BottomR} onPress={() => { this.setModalVisible() }} >
               <Text >R</Text>
-
-                {/* <Image style={styles.icon} source={require('../img/icon_stop.png')} /> */}
               </TouchableOpacity>
-
-     
-          
-            </View>
+            </View> */}
 
 
 
@@ -123,39 +125,6 @@ export default class CardMaintainer_Dockerfile extends Component {
     );
   }
 }
-
-
-  //           {/* {this.state.isConnected ?  <Image style={styles.icon} source={require('../img/icon_on.png')} />:   <Image style={styles.icon} source={require('../img/icon_off.png')} /> } */}
-  //           {this.props.infoState == "running" ? <Image style={styles.icon} source={require('../img/icon_on.png')} /> : <Image style={styles.icon} source={require('../img/icon_off.png')} />}
-
-  //           <View style={{ flex: 2.5, flexDirection: 'column', justifyContent: 'center', paddingHorizontal: 5, }}>
-  //             {/* <Text style={{ fontSize: 22, }}>{this.props.infoTitle}</Text> */}
-  //             <Text style={{ fontSize: 10, }}>{this.props.infoTitle}</Text>
-  //             <Text style={{ fontSize: 10, }}>{this.props.infoStauts}</Text>
-  //             {/* <Text style={{ fontSize: 12,}}>{"ID:"+this.cutString(this.props.infoTitle,16)}</Text> */}
-  //             {/* <Text style={{ fontSize: 12,}}>{"State:"+this.props.infoState}</Text> */}
-  //             <Text style={{ fontSize: 10, }}>{"ID:" + this.cutString(this.props.infoBody, 16)}</Text>
-  //             {/* <Text style={{ fontSize: 8,}}>{this.props.SizeRootFs}</Text> */}
-
-  //             {/* <Text style={{ fontSize: 12,}}>{"ID:"+this.state.dockerID}</Text> */}
-  //             {/* <Text style={{ fontSize: 14, flex: 1, lineHeight: 24, justifyContent: 'center', alignItems: 'center' }}>
-  // {this.props.infoBody}</Text> */}
-  //           </View>
-  //           {this.props.infoState == "running" ?
-  //             <View style={{ flex: 1, flexDirection: 'column', justifyContent: 'center', paddingHorizontal: 5, }}>
-  //               <Text style={{ fontSize: 8, }}>Ports:</Text>
-  //               <Text style={{ fontSize: 8, }}>{this.props.infoPorts[0].IP}</Text>
-  //               <Text style={{ fontSize: 8, }}>{this.props.infoPorts[0].PrivatePort}</Text>
-  //               <Text style={{ fontSize: 8, }}>{this.props.infoPorts[0].PublicPort}</Text>
-  //             </View> :
-  //             <View />
-  //           }
-{/*Ex
-  <CardNotice infoTitle={} infoBody={}/> 
-  <CardNotice infoTitle={msg.announcement[1].title} infoBody={msg.announcement[2].detail}/> 
-
-*/}
-//style={[styles.card]}
 
 
 const styles = StyleSheet.create({
@@ -183,32 +152,64 @@ const styles = StyleSheet.create({
     // marginRight:20,
     // marginHorizontal: 10,
   },
+  fontTitle:{
+    fontSize: 18, 
+
+  },
+  fontBody:{
+    fontSize: 10, 
+
+  },
+  Input:{
+    // height: 40,
+    fontSize: 18, 
+width:width*0.4,
+backgroundColor:"#454F63",
+color:"#FFF",
+   borderBottomWidth: 1,
+    borderBottomColor: '#454F63',
+    borderTopLeftRadius: 15,
+    borderTopRightRadius: 15,
+    borderBottomLeftRadius: 15,
+    borderBottomRightRadius: 15,
+  },
   cordTop: {
     flex: 1,
     flexDirection: 'row',
-    justifyContent: 'center',
-    paddingHorizontal: 5,
+    justifyContent: "flex-start",
+
     borderTopLeftRadius: 15,
     borderTopRightRadius: 15,
     borderBottomLeftRadius: 0,
     borderBottomRightRadius: 0,
-    backgroundColor: '#FFa',
+    // backgroundColor: '#FFa',
+    paddingLeft: 15,
 
-  },
-  cordDoc: {
+
+    paddingTop: 15,
+    paddingBottom: 5,
+  },  cordDoc: {
     flex: 1,
+    paddingVertical: 5,
+
     flexDirection: "column",
     justifyContent: 'center',
     paddingHorizontal: 5,
-    backgroundColor: '#aFF',
+     backgroundColor: '#aFF',
   },
   cordInput: {
     flex: 1,
+    paddingBottom: 10,
+
     flexDirection: 'row',
-    justifyContent: 'center',
+    justifyContent: "space-between",
     paddingHorizontal: 5,
-    backgroundColor: '#FFaaFF',
-  }, cordSelect: {
+    borderTopLeftRadius: 0,
+    borderTopRightRadius: 0,
+    borderBottomLeftRadius: 15,
+    borderBottomRightRadius: 15,
+    //  backgroundColor: '#FFaaFF',
+  },  cordSelect: {
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'center',

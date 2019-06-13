@@ -9,6 +9,7 @@ import {
   TouchableOpacity
 } from 'react-native';
 
+import { Dropdown } from 'react-native-material-dropdown';
 
 // 取得屏幕的宽高Dimensions
 const { width, height } = Dimensions.get('window');
@@ -22,6 +23,13 @@ export default class CardCopy_Dockerfile extends Component {
       ContainerStauts: null,
       connectionInfo: null,
       dockerID: null,
+      data:[{
+        value: 'Banana',
+      }, {
+        value: 'Mango',
+      }, {
+        value: 'Pear',
+      }],
     };
   }
 
@@ -54,6 +62,7 @@ export default class CardCopy_Dockerfile extends Component {
   setModalVisible() {
 
   };
+  onChangeText(){}
   // componentWillMount(){
   //   setDockerId();
 
@@ -72,7 +81,29 @@ export default class CardCopy_Dockerfile extends Component {
                 <Text style={styles.fontTitle} >複製檔案至目標</Text>
               </View>
               <View style={styles.TopR}>
-                <Text style={styles.fontTitle} >複製檔案至目標</Text>
+                {/* <Text style={styles.fontTitle} >複製檔案至目標</Text> */}
+    
+         <Dropdown
+        // label='Favorite Fruit'
+        data={this.state.data}
+        // dropdownMargins={top:32,left: 0 }
+
+        containerStyle={styles.picker}
+        // overlayStyle={styles.TopR}
+        pickerStyle={styles.cordTop}
+          // valueExtractor={({ value }) => value}
+          // value={this.key}
+          // onChangeText={(value) => {
+          //   this.SEX = value;
+          // }}
+        />
+ 
+
+
+
+
+
+        
               </View>
             </View>
             <View style={styles.cordDoc}>
@@ -85,7 +116,35 @@ export default class CardCopy_Dockerfile extends Component {
 
             <View style={styles.cordSelect}>
             <Text style={styles.fontTitle} >COPY</Text>
+            <Dropdown
+        // label='Favorite Fruit'
+        data={this.state.data}
+        // dropdownMargins={top:32,left: 0 }
+
+        containerStyle={styles.picker2}
+        // overlayStyle={styles.TopR}
+        pickerStyle={styles.cordTop}
+          // valueExtractor={({ value }) => value}
+          // value={this.key}
+          // onChangeText={(value) => {
+          //   this.SEX = value;
+          // }}
+        />
             <Text style={styles.fontTitle} >TO</Text>
+            <Dropdown
+        // label='Favorite Fruit'
+        data={this.state.data}
+        // dropdownMargins={top:32,left: 0 }
+
+        containerStyle={styles.picker2}
+        // overlayStyle={styles.TopR}
+        pickerStyle={styles.cordTop}
+          // valueExtractor={({ value }) => value}
+          // value={this.key}
+          // onChangeText={(value) => {
+          //   this.SEX = value;
+          // }}
+        />
 
             </View>
             <View style={styles.cordBottom}>
@@ -121,6 +180,38 @@ export default class CardCopy_Dockerfile extends Component {
 
           </View>
         } />
+            {/* <View style={{ flexDirection: "column" }}>
+
+<Dropdown
+              ref={this.typographyRef}
+              data={this.state.data}
+              onChangeText={this.onChangeText}
+              label='Typography'
+              data={this.state.data}
+              />
+
+              <View style={{ flex: 1 }}>
+                <Dropdown
+                  // ref={this.nameRef}
+                  value={this.state.data}
+                  onChangeText={this.onChangeText}
+                  label='Color name'
+                  data={this.state.data}
+                  />
+              </View>
+
+              <View style={{ width: 96, marginLeft: 8 }}>
+                <Dropdown
+                  // ref={this.codeRef}
+                  value={this.state.data}
+                  onChangeText={this.onChangeText}
+                  label='Color code'
+                  data={this.state.data}
+                  propsExtractor={({ props }, index) => props}
+                />
+
+              </View>
+              </View> */}
       </View>
     );
   }
@@ -181,7 +272,44 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 15,
     borderBottomLeftRadius: 0,
     borderBottomRightRadius: 0,
-    backgroundColor: '#FFa',
+    // backgroundColor: '#FFa',
+  },  picker: {
+    flex: 1,
+    marginTop:-20,
+    // paddingVertical: 5,
+    // paddingBottom:20,
+    // borderRadius: 50,
+    fontSize:18,
+    // height:30,
+    // labelFontSize:8,
+    // flexDirection: 'row',
+    // justifyContent: 'center',
+    // borderTopLeftRadius: 15,
+    // paddingTop: 15,
+    // paddingBottom: 5,
+    // borderTopLeftRadius: 15,
+    borderTopRightRadius: 15,
+    // borderBottomLeftRadius: 0,
+    // borderBottomRightRadius: 0,
+    //  backgroundColor: '#aaa',
+  },
+  picker2: {
+    flex: 1,
+    marginTop:-30,
+
+    // marginTop:-20,
+    // paddingVertical: 5,
+    // paddingBottom:20,
+    // borderRadius: 50,
+    fontSize:18,
+    // height:30,
+    // labelFontSize:8,
+    // flexDirection: 'row',
+    // justifyContent: 'center',
+    // paddingTop: 15,
+    // paddingBottom: 5,
+
+    //  backgroundColor: '#aaa',
   },
   TopL: {
     flex: 1,
@@ -190,16 +318,18 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 15,
     paddingTop: 15,
     paddingBottom: 5,
-    backgroundColor: '#Faa',
+    // backgroundColor: '#Faa',
   },
   TopR: {
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'center',
     borderTopRightRadius: 15,
-    paddingTop: 15,
-    paddingBottom: 5,
-    backgroundColor: '#Faa',
+    overflow:'hidden',
+
+    // paddingTop: 15,
+    // paddingBottom: 5,
+    // backgroundColor: '#aFaa',
   },
   cordDoc: {
     flex: 1,
@@ -208,22 +338,23 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     justifyContent: 'center',
     paddingHorizontal: 5,
-    backgroundColor: '#aFF',
+    // backgroundColor: '#aFF',
   },
   cordInput: {
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'center',
     paddingHorizontal: 5,
-    backgroundColor: '#FFaaFF',
+    // backgroundColor: '#FFaaFF',
   }, cordSelect: {
     flex: 1,
     flexDirection: 'row',
-    justifyContent: 'center',
-    paddingVertical: 10,
+    justifyContent: "space-between",
+    // paddingVertical: -10,
+    overflow:'hidden',
 
     paddingHorizontal: 5,
-    backgroundColor: '#6F12F2',
+    // backgroundColor: '#6F12F2',
   }, cordBottom: {
     flex: 1,
     flexDirection: 'row',
@@ -233,7 +364,7 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 0,
     borderBottomLeftRadius: 15,
     borderBottomRightRadius: 15,
-    backgroundColor: '#cFcF',
+    // backgroundColor: '#cFcF',
     // borderRadius: 10 5 5 5 ,
   }, BottomR: {
     flex: 1,
@@ -246,7 +377,7 @@ const styles = StyleSheet.create({
     borderBottomRightRadius: 15,
     paddingVertical: 10,
 
-    backgroundColor: '#ff0000',
+    backgroundColor: '#454F63',
   }, BottomL: {
     flex: 1,
     flexDirection: 'row',
@@ -258,6 +389,6 @@ const styles = StyleSheet.create({
     borderBottomRightRadius: 0,
     paddingVertical: 10,
 
-    backgroundColor: '#0000ff',
+    backgroundColor: '#24B8EB',
   }
 });
